@@ -1,0 +1,138 @@
+/* Copied from old project and updated for root deployment */
+
+/* Hint styling */
+.hint {
+    margin-top: 1.1rem;
+    color: #6b7280;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+/* Main title styling */
+.main-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #2d6cdf;
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+body {
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 2.5rem 1.2rem 2rem 1.2rem;
+    max-width: 400px;
+    width: 100%;
+    margin: 1.5rem;
+    text-align: center;
+}
+
+.img-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1/1;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.flamenco-img.blurred {
+    filter: blur(32px) brightness(0.2) grayscale(1);
+    transition: filter 0.5s;
+}
+
+.flamenco-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    border: 2px solid #e0e7ef;
+    background: #fff;
+    display: block;
+}
+
+#blackout {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #000 !important;
+    border-radius: 14px;
+    transition: opacity 0.5s;
+    z-index: 99;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#guessForm {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    max-width: 320px;
+    width: 100%;
+}
+
+#guessInput {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    outline: none;
+    transition: border 0.2s;
+}
+#guessInput:focus {
+    border: 1.5px solid #2d6cdf;
+}
+
+#guessForm button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    background: #2d6cdf;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#guessForm button:hover {
+    background: #1e4fa3;
+}
+
+#result {
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2d6cdf;
+    min-height: 1.2em;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1.2rem 0.3rem 1.5rem 0.3rem;
+        max-width: 98vw;
+        margin: 0.5rem;
+    }
+    .img-wrapper {
+        max-width: 98vw;
+    }
+    #guessForm {
+        max-width: 98vw;
+    }
+}

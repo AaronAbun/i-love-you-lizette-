@@ -1,0 +1,43 @@
+<!-- Copied from old project and updated for root deployment -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love you Lizette</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <div class="container">
+            <h1 class="main-title">Who's Who in the ZOO</h1>
+            <div class="img-wrapper">
+                <img src="Adrian.JPEG" alt="Guess who" class="flamenco-img blurred" id="zooImg">
+                <div id="blackout"></div>
+            </div>
+            <form id="guessForm">
+                <input id="guessInput" type="text" placeholder="Guess who" autocomplete="off" />
+                <button type="submit">Submit</button>
+            </form>
+            <div id="result"></div>
+            <div class="hint">Hint: Hello Newman!</div>
+        </div>
+        <script>
+            const form = document.getElementById('guessForm');
+            const input = document.getElementById('guessInput');
+            const blackout = document.getElementById('blackout');
+            const zooImg = document.getElementById('zooImg');
+            const result = document.getElementById('result');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (input.value.trim().toLowerCase() === 'adrian') {
+                    blackout.style.opacity = 0;
+                    blackout.style.pointerEvents = 'none';
+                    zooImg.classList.remove('blurred');
+                    result.textContent = 'Correct!';
+                } else {
+                    result.textContent = 'Try again!';
+                }
+            });
+        </script>
+</body>
+</html>
