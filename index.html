@@ -14,10 +14,15 @@
     <meta property="og:url" content="https://aaronabun.github.io/Who-s-who-in-the-Zoo/" />
 </head>
 <body>
-        <div class="container">
+        <div class="container" id="landingContainer">
             <h1 class="main-title">Who's Who in the ZOO</h1>
-            <div class="img-wrapper">
-                <img src="Whoswhointhezoo/Adrian.JPEG" alt="Guess who" class="flamenco-img blurred" id="zooImg">
+            <p class="rules">Guess the first name and win a prize!<br>Click Play to start the game.</p>
+            <button id="playBtn">Play</button>
+        </div>
+        <div class="container" id="gameContainer" style="display:none;">
+            <h1 class="main-title">Who's Who in the ZOO</h1>
+            <div class="img-wrapper" id="imgWrapper">
+                <!-- Image will be loaded here after correct answer -->
                 <div id="blackout"></div>
             </div>
             <form id="guessForm">
@@ -28,19 +33,37 @@
             <div class="hint">Hint: Hello Newman!</div>
         </div>
         <script>
+            // Landing page logic
+            const playBtn = document.getElementById('playBtn');
+            const landingContainer = document.getElementById('landingContainer');
+            const gameContainer = document.getElementById('gameContainer');
+            playBtn.addEventListener('click', function() {
+                landingContainer.style.display = 'none';
+                gameContainer.style.display = 'block';
+            });
+
+            // Game logic (same as before, but only runs after Play)
             const form = document.getElementById('guessForm');
             const input = document.getElementById('guessInput');
             const blackout = document.getElementById('blackout');
-            const zooImg = document.getElementById('zooImg');
+            const imgWrapper = document.getElementById('imgWrapper');
             const result = document.getElementById('result');
+            let revealed = false;
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (input.value.trim().toLowerCase() === 'adrian') {
+                if (input.value.trim().toLowerCase() === 'adrian' && !revealed) {
+                    // Dynamically create and insert the image only after correct answer
+                    const zooImg = document.createElement('img');
+                    zooImg.src = 'Whoswhointhezoo/Adrian.JPEG';
+                    zooImg.alt = 'Guess who';
+                    zooImg.className = 'flamenco-img';
+                    zooImg.id = 'zooImg';
+                    imgWrapper.insertBefore(zooImg, blackout);
                     blackout.style.opacity = 0;
                     blackout.style.pointerEvents = 'none';
-                    zooImg.classList.remove('blurred');
                     result.textContent = 'Correct!';
-                } else {
+                    revealed = true;
+                } else if (!revealed) {
                     result.textContent = 'Try again!';
                 }
             });
