@@ -1,3 +1,13 @@
+/* Main title styling */
+.main-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #2d6cdf;
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
 body {
     background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
     min-height: 100vh;
