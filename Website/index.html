@@ -9,7 +9,7 @@
 <body>
         <div class="container" style="background: #fff; text-align:center; padding:2rem 1rem;">
                 <div style="position:relative; display:inline-block; max-width:350px; width:90vw;">
-                        <img src="../whoswhointhezoo/Adrian.JPEG" alt="Guess who" class="flamenco-img" id="zooImg" style="opacity:0; transition:opacity 0.5s; width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+                        <img src="../whoswhointhezoo/Adrian.JPEG" alt="Guess who" class="flamenco-img" id="zooImg" style="opacity:1; transition:opacity 0.5s; width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
                         <div id="blackout" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);border-radius:12px;transition:opacity 0.5s;z-index:2;"></div>
                 </div>
                 <form id="guessForm" style="margin-top:2rem;max-width:350px;width:100%;display:flex;gap:0.5rem;justify-content:center;">
@@ -29,7 +29,6 @@
                 if (input.value.trim().toLowerCase() === 'adrian') {
                     blackout.style.opacity = 0;
                     blackout.style.pointerEvents = 'none';
-                    zooImg.style.opacity = 1;
                     result.textContent = 'Correct!';
                 } else {
                     result.textContent = 'Try again!';
