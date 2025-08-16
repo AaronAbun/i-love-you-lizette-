@@ -10,7 +10,7 @@
         <div class="container">
             <h1 class="main-title">Who's Who in the ZOO</h1>
             <div class="img-wrapper">
-                <img src="../Whoswhointhezoo/Adrian.JPEG" alt="Guess who" class="flamenco-img" id="zooImg">
+                <img src="../Whoswhointhezoo/Adrian.JPEG" alt="Guess who" class="flamenco-img blurred" id="zooImg">
                 <div id="blackout"></div>
             </div>
             <form id="guessForm">
@@ -31,6 +31,7 @@
                 if (input.value.trim().toLowerCase() === 'adrian') {
                     blackout.style.opacity = 0;
                     blackout.style.pointerEvents = 'none';
+                    zooImg.classList.remove('blurred');
                     result.textContent = 'Correct!';
                 } else {
                     result.textContent = 'Try again!';

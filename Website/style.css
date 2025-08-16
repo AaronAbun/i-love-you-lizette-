@@ -45,6 +45,13 @@ body {
     max-width: 320px;
     aspect-ratio: 1/1;
     margin-bottom: 1.5rem;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.flamenco-img.blurred {
+    filter: blur(32px) brightness(0.2) grayscale(1);
+    transition: filter 0.5s;
 }
 
 .flamenco-img {
@@ -61,10 +68,12 @@ body {
 #blackout {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10,12,20,0.98);
+    background: #000 !important;
     border-radius: 14px;
     transition: opacity 0.5s;
-    z-index: 2;
+    z-index: 99;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #guessForm {
