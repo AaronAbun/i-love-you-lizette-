@@ -3,6 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's Who in the Zoo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+        .zoo-img {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: block;
+        }
+        .blackout {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            border-radius: 12px;
+            transition: opacity 0.5s;
+            z-index: 2;
+        }
+        .blackout.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .guess-form {
+            margin-top: 2rem;
+        }
+        .guess-input {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-right: 0.5rem;
+        }
+        button {
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            background: #2d6cdf;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a4fa0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Who's Who in the Zoo</h1>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="adrian.png" alt="Guess who" class="zoo-img">
+            <div class="blackout" id="blackout"></div>
+        </div>
+        <form class="guess-form" id="guessForm">
+            <input type="text" placeholder="Enter your guess..." class="guess-input" id="guessInput" autocomplete="off" />
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" style="margin-top:1rem;font-weight:bold;"></div>
+    </main>
+    <script>
+        const form = document.getElementById('guessForm');
+        const input = document.getElementById('guessInput');
+        const blackout = document.getElementById('blackout');
+        const result = document.getElementById('result');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (input.value.trim().toLowerCase() === 'adrian') {
+                blackout.classList.add('hide');
+                result.textContent = 'Correct!';
+            } else {
+                result.textContent = 'Try again!';
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I love you Lizette</title>
     <link rel="stylesheet" href="style.css">
 </head>
