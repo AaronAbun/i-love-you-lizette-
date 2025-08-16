@@ -5,55 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who's Who in the Zoo</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .image-container {
-            position: relative;
-            display: inline-block;
-            margin: 2rem 0;
-        }
-        .zoo-img {
-            max-width: 350px;
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            display: block;
-        }
-        .blackout {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85);
-            border-radius: 12px;
-            transition: opacity 0.5s;
-            z-index: 2;
-        }
-        .blackout.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .guess-form {
-            margin-top: 2rem;
-        }
-        .guess-input {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            margin-right: 0.5rem;
-        }
-        button {
-            padding: 0.5rem 1.2rem;
-            font-size: 1rem;
-            border-radius: 6px;
-            border: none;
-            background: #2d6cdf;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        button:hover {
-            background: #1a4fa0;
-        }
-    </style>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #fff;
+                font-family: 'Segoe UI', Arial, sans-serif;
+            }
+            header {
+                padding: 1.5rem 1rem 0.5rem 1rem;
+                text-align: center;
+            }
+            h1 {
+                font-size: 2rem;
+                margin: 0;
+            }
+            main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+            .image-container {
+                position: relative;
+                display: inline-block;
+                margin: 2rem 0 1.5rem 0;
+                width: 90vw;
+                max-width: 350px;
+            }
+            .zoo-img {
+                width: 100%;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                display: block;
+                height: auto;
+            }
+            .blackout {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.85);
+                border-radius: 12px;
+                transition: opacity 0.5s;
+                z-index: 2;
+            }
+            .blackout.hide {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .guess-form {
+                margin-top: 1.5rem;
+                width: 100%;
+                max-width: 350px;
+                display: flex;
+                gap: 0.5rem;
+            }
+            .guess-input {
+                flex: 1;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+            }
+            button {
+                padding: 0.5rem 1.2rem;
+                font-size: 1rem;
+                border-radius: 6px;
+                border: none;
+                background: #2d6cdf;
+                color: #fff;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            button:hover {
+                background: #1a4fa0;
+            }
+            #result {
+                margin-top: 1rem;
+                font-weight: bold;
+                text-align: center;
+            }
+            @media (max-width: 500px) {
+                h1 {
+                    font-size: 1.3rem;
+                }
+                .image-container {
+                    margin: 1rem 0 1rem 0;
+                    max-width: 98vw;
+                }
+                .guess-form {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                .guess-input, button {
+                    font-size: 1rem;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+            }
+        </style>
 </head>
     <body style="background: #fff;">
         <header>
@@ -101,7 +150,7 @@
     <div class="container">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Latina woman dancing flamenco" class="flamenco-img">
         <div class="heart"></div>
-        <h1>I love you Lizette</h1>
+        <h1>Who's Who in the Zoo</h1>
     </div>
     <script src="script.js"></script>
 </body>
