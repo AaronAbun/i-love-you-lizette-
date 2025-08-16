@@ -110,8 +110,8 @@
         </header>
         <main>
             <div class="image-container">
-                <img src="adrian.png" alt="Guess who" class="zoo-img" id="zooImg" style="opacity:0; transition: opacity 0.5s;">
-                <div class="blackout" id="blackout" style="opacity:1;"></div>
+            <img src="adrian.png" alt="Guess who" class="zoo-img" id="zooImg" style="opacity:0; transition: opacity 0.5s; position:relative; z-index:1;">
+            <div class="blackout" id="blackout" style="opacity:1; position:absolute; top:0; left:0; right:0; bottom:0; z-index:2;"></div>
             </div>
             <form class="guess-form" id="guessForm">
                 <input type="text" placeholder="Enter your guess..." class="guess-input" id="guessInput" autocomplete="off" />
@@ -127,13 +127,14 @@
             const zooImg = document.getElementById('zooImg');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                if (input.value.trim().toLowerCase() === 'adrian') {
-                    blackout.style.opacity = 0;
-                    zooImg.style.opacity = 1;
-                    result.textContent = 'Correct!';
-                } else {
-                    result.textContent = 'Try again!';
-                }
+                        if (input.value.trim().toLowerCase() === 'adrian') {
+                            blackout.style.opacity = 0;
+                            blackout.style.pointerEvents = 'none';
+                            zooImg.style.opacity = 1;
+                            result.textContent = 'Correct!';
+                        } else {
+                            result.textContent = 'Try again!';
+                        }
             });
         </script>
     </body>
